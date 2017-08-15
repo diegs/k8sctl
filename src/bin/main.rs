@@ -1,10 +1,12 @@
 #[macro_use]
 
 extern crate clap;
+extern crate k8sctl;
 
 use clap::AppSettings;
 use clap::Arg;
 use clap::SubCommand;
+use k8sctl::get;
 
 fn main() {
     let matches = app_from_crate!(", ")
@@ -45,8 +47,8 @@ fn main() {
         )
         .get_matches();
 
-    match matches.subcommand_name() {
-        Some("get") => println!("ok, coming right up"),
+    match matches.subcommand() {
+        ("get", Some(get_matches)) => get::get(get_matches),
         _ => (),
     }
 }
