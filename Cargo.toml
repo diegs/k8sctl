@@ -1,0 +1,8 @@
+[package]
+name = "k8sctl"
+description = "A kubectl clone written in Rust."
+version = "0.1.0"
+authors = ["Diego Pontoriero <dpontor@gmail.com>"]
+
+[dependencies]
+clap = "2.26.0"
