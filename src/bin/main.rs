@@ -16,6 +16,7 @@ fn main() {
                 .value_name("KUBECONFIG")
                 .long("kubeconfig")
                 .help("Path to the kubeconfig file to use for CLI requests.")
+                .global(true)
                 .takes_value(true)
                 .default_value("")
                 .hide_default_value(true),
@@ -26,6 +27,7 @@ fn main() {
                 .long("namespace")
                 .short("n")
                 .help("If present, the namespace scope for this CLI request.")
+                .global(true)
                 .takes_value(true)
                 .default_value("")
                 .hide_default_value(true),
