@@ -5,6 +5,7 @@ extern crate k8sctl;
 
 use clap::AppSettings;
 use clap::Arg;
+use clap::ArgMatches;
 use clap::SubCommand;
 use k8sctl::get;
 
@@ -50,7 +51,17 @@ fn main() {
         .get_matches();
 
     match matches.subcommand() {
-        ("get", Some(get_matches)) => get::get(get_matches),
+        ("get", Some(get_matches)) => get(get_matches),
         _ => (),
     }
+}
+
+fn get(matches: &ArgMatches) {
+    get::get(get::Options{
+        typ: matches.value_of("type").unwrap(),
+        name: matches.value_of("name"),
+        kubeconfig: matches.value_of("kubeconfig").unwrap_or("no kubeconfig"),
+        namespace: matches.value_of("namespace").unwrap_or("no namespace"),
+        output: matches.value_of("output").unwrap_or(""),
+    });
 }
