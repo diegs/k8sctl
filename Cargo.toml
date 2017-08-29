@@ -6,3 +6,6 @@ authors = ["Diego Pontoriero <dpontor@gmail.com>"]
 
 [dependencies]
 clap = "2.26.0"
+k8s = { path = "k8s" }
+
+[workspace]

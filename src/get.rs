@@ -1,3 +1,5 @@
+extern crate k8s;
+
 pub struct Options<'a> {
     pub typ: &'a str,
     pub name: Option<&'a str>,
